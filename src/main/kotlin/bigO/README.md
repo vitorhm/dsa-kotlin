@@ -1,9 +1,12 @@
-## Cheat Sheet
-https://zerotomastery.io/cheatsheets/big-o-cheat-sheet
+## Definition
 
 Big O is used to classify algorithm scalability, measuring how long an algorithm takes to run.
 
 ![img.png](img.png)
+
+## Cheat Sheet
+- https://zerotomastery.io/cheatsheets/big-o-cheat-sheet
+- https://www.bigocheatsheet.com/
 
 ### O(n) - Linear Time
 
