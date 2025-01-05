@@ -1,11 +1,10 @@
 package bigO
 
 import java.time.Instant
-import java.time.LocalDateTime
 
-object FindNemo {
+object LinearTime {
 
-    fun find(array: Array<String>) {
+    private fun find(array: Array<String>) {
         val t0 = Instant.now()
         for (i in array) {
             if (i == "nemo") {
@@ -24,7 +23,7 @@ object FindNemo {
         val list = mutableListOf("")
         repeat(100_000) { list.add("nemo") }
 
-        find(list.toTypedArray())
+        find(list.toTypedArray()) // O(n) --> Linear Time
     }
 
 }
