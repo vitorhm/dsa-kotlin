@@ -23,3 +23,10 @@ Every element increased, the operation quadratic increase. Normally this means n
 ### O(n!) - Factorial Time
 
 The most expensive, basically we're adding a nested loop for every element we iterate.
+
+## Pillars
+
+- **Readable**: Our code must be readable.
+- **Memory**: Use BigO to measure space complexity, the memory required to run or algorithm.
+- **Speed**: Use BigO to measure time complexity, how long that takes the algorithm to run.
+
