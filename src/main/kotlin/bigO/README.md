@@ -8,14 +8,18 @@ Big O is used to classify algorithm scalability, measuring how long an algorithm
 - https://zerotomastery.io/cheatsheets/big-o-cheat-sheet
 - https://www.bigocheatsheet.com/
 
-### O(n) - Linear Time
-
-Complexity increase as elements and operations increase on the same amount.
-
 ### O(1) - Constant Time
 
 Complexity is constant, no matter how many elements we have.
 
+### O(n) - Linear Time
+
+Complexity increase as elements and operations increase on the same amount.
+
 ### O(n²) - Quadratic Time
 
 Every element increased, the operation quadratic increase. Normally this means nested loops for example.
+
+### O(n!) - Factorial Time
+
+The most expensive, basically we're adding a nested loop for every element we iterate.
