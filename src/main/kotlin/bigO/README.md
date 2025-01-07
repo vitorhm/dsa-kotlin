@@ -1,4 +1,4 @@
-## Definition
+## BigO
 
 Big O is used to classify algorithm scalability, measuring how long an algorithm takes to run.
 
