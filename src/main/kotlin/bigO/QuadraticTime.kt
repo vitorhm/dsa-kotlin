@@ -1,17 +1,13 @@
 package bigO
 
-object QuadraticTime {
+val array = arrayOf(1, 2, 3, 4, 5)
 
-    val array = arrayOf(1, 2, 3, 4, 5)
+fun main() {
 
-    @JvmStatic
-    fun main(args: Array<String>) {
-
-        for (i in array) {
-            for (x in array) {
-                println("$i$x")
-            }
+    for (i in array) {
+        for (x in array) {
+            println("$i$x")
         }
-
     }
+
 }
