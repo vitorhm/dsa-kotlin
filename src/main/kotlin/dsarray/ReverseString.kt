@@ -10,11 +10,22 @@ object ReverseString {
             .joinToString("")
     }
 
+    fun reverse3(str: String): String {
+
+        var content = ""
+        for (i in str.indices) {
+           content = content.plus(str[(str.length - 1) - i])
+        }
+
+        return content
+    }
+
     @JvmStatic
     fun main(args: Array<String>) {
 
         println(reverse("ABC"))
         println(reverse2("ABC"))
+        println(reverse3("ABC"))
     }
 
 }
