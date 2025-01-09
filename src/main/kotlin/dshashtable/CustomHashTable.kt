@@ -42,13 +42,26 @@ class CustomHashTable<T>(private val size: Int) {
         return null
     }
 
+    fun keys(): List<String> {
+        val list = mutableListOf<String>()
+
+        for (i in this.array) {
+            if (i != null) {
+                list.add(i[0][0].toString())
+            }
+        }
+
+        return list.toList()
+    }
+
 }
 
 fun main() {
 
-    val hashTable = CustomHashTable<Int>(1)
+    val hashTable = CustomHashTable<Int>(30)
     hashTable.set("abc", 10)
 
     println(hashTable.get("abc"))
     println(hashTable.get("cdb"))
+    println(hashTable.keys())
 }
