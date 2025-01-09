@@ -13,8 +13,8 @@ object ReverseString {
     fun reverse3(str: String): String {
 
         var content = ""
-        for (i in str.indices) {
-           content = content.plus(str[(str.length - 1) - i])
+        for (i in str.indices.reversed()) {
+           content = content.plus(str[i])
         }
 
         return content
