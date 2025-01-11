@@ -1,21 +1,35 @@
 package dslinkedlist
 
-class CustomLinkedList<T>(value: T) {
+class CustomLinkedList<T> {
 
-    private var head: Node<T>
-    private var tail: Node<T>
+    private var head: Node<T>? = null
+    private var tail: Node<T>? = null
 
-    init {
+    constructor(value: T) {
         val node = Node(value, null)
         head = node
         tail = head
     }
 
+    constructor()
+
     fun append(value: T) {
 
         val node = Node(value, null)
-        tail.next = node
+        if (head == null) {
+            head = node
+        }
+
+        tail?.let { it.next = node }
         tail = node
+    }
+
+    fun prepend(value: T) {
+
+        val node = Node(value, this.head)
+        head = node
+
+        if (tail == null) tail = head
     }
 
     override fun toString(): String {
@@ -32,6 +46,8 @@ class CustomLinkedList<T>(value: T) {
 fun main() {
     val list = CustomLinkedList(1)
     list.append(2)
+    list.append(5)
+    list.prepend(20)
 
     println(list)
 }
