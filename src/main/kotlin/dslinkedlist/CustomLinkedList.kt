@@ -62,6 +62,27 @@ class CustomLinkedList<T> {
         lead.next = newNode
     }
 
+    fun remove(index: Int) {
+
+        if (index == 0) {
+
+            head = head?.next
+            if (head == null) tail = null
+
+            return
+        }
+
+        // Find the lead
+        val lead = findNode(index - 1)
+
+        // Get the current item on this index (which is the next node on the lead)
+        val deleted = lead?.next
+
+        // Point the next node of the lead to the next node of the deleted (erasing all references to the deleted node)
+        lead?.next = deleted?.next
+        if (tail == deleted) tail = lead
+    }
+
     override fun toString(): String {
         var node = head
         var string = ""
@@ -71,7 +92,7 @@ class CustomLinkedList<T> {
             node?.let { string += "," }
         }
 
-        return string
+        return "$string (head: ${head?.value} | tail: ${tail?.value})"
     }
 
     data class Node<T>(
@@ -84,14 +105,28 @@ class CustomLinkedList<T> {
 fun main() {
     val list = CustomLinkedList(1)
     println(list)
+    println("append(2)")
     list.append(2)
     println(list)
+    println("prepend(5)")
     list.prepend(5)
     println(list)
-    list.insert(2, 60)
+    println("insert(2, 60)")
+    list.insert(2, 60) // Middle
     println(list)
-    list.insert(50, 30)
+    println("insert(50, 30)")
+    list.insert(50, 30) // Index too big (should append)
     println(list)
-    list.insert(0, 80)
+    println("insert(0, 80)")
+    list.insert(0, 80) // Begin (should prepend)
+    println(list)
+    println("remove(0)")
+    list.remove(0) // Begin (should update the head)
+    println(list)
+    println("remove(4)")
+    list.remove(4) // End (should update the tail)
+    println(list)
+    println("remove(1)")
+    list.remove(1) // Middle
     println(list)
 }
