@@ -11,3 +11,7 @@
 
 - **Slow Lookup**: We need to transverse the nodes.
 - **More Memory**
+
+### Reverse explanation
+
+https://www.youtube.com/watch?v=O0By4Zq0OFc
