@@ -89,6 +89,25 @@ class CustomLinkedList<T> {
         if (tail == deleted) tail = lead
     }
 
+    fun reverse() {
+
+        tail = head
+        head = reverseHead(head)
+    }
+
+    private fun reverseHead(head: Node<T>?): Node<T>? {
+
+        if (head?.next == null) {
+            return head
+        }
+
+        val reversed = reverseHead(head.next) // 3
+        head.next?.next = head
+        head.next = null
+
+        return reversed
+    }
+
     override fun toString(): String {
         var node = head
         var string = ""
@@ -134,5 +153,9 @@ fun main() {
     println(list)
     println("remove(1)")
     list.remove(1) // Middle
+    println(list)
+
+    println("reverse()")
+    list.reverse()
     println(list)
 }
