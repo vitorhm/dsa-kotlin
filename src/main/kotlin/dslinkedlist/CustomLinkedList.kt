@@ -91,6 +91,19 @@ class CustomLinkedList<T> {
 
     fun reverse() {
 
+        var previous = head
+        var current = previous?.next
+
+        while (current != null) { // 3
+            val next = current.next // 4
+            current.next = previous // 4 --> 2
+            previous = current // 3
+            current = next // 4
+        }
+    }
+
+    fun recursiveReverse() {
+
         tail = head
         head = reverseHead(head)
     }
@@ -153,6 +166,10 @@ fun main() {
     println(list)
     println("remove(1)")
     list.remove(1) // Middle
+    println(list)
+
+    println("recursiveReverse()")
+    list.recursiveReverse()
     println(list)
 
     println("reverse()")
