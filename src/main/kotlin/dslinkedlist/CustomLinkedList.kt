@@ -93,6 +93,7 @@ class CustomLinkedList<T> {
 
         var previous = head
         var current = previous?.next
+        tail = head
 
         while (current != null) { // 3
             val next = current.next // 4
@@ -100,6 +101,9 @@ class CustomLinkedList<T> {
             previous = current // 3
             current = next // 4
         }
+
+        tail?.next = null
+        head = previous
     }
 
     fun recursiveReverse() {
