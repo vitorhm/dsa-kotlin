@@ -14,7 +14,6 @@ class QueueWithLinkedList<T> {
         last?.next = node
         last = node
         if (first == null) first = last
-        // (3) --> (3,4) --> (3,4,5)
     }
 
     fun dequeue(): T? {
