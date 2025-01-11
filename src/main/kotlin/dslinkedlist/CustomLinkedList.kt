@@ -32,38 +32,46 @@ class CustomLinkedList<T> {
         if (tail == null) tail = head
     }
 
-    fun insert(index: Int, value: T) {
-        if (head == null) {
-            append(value)
-            return
+    private fun findNode(index: Int): Node<T>? {
+
+        var node: Node<T>? = head
+        var counter = 0
+
+        while (counter != index && node != null) {
+            node = node.next
+            ++counter
         }
+
+        return node
+    }
+
+    fun insert(index: Int, value: T) {
 
         if (index == 0) {
             prepend(value)
             return
         }
 
-        var node: Node<T>? = head!!.next
-        var previous: Node<T> = head!!
-        var currentIndex = 1
-
-        while (node != null) {
-            val current = node
-            if (currentIndex == index) {
-                val newNode = Node(value, node)
-                previous.next = newNode
-            }
-
-            node = current.next
-            previous = current
-            ++currentIndex
+        val lead = findNode(index - 1)
+        if (lead == null) {
+            append(value)
+            return
         }
 
-        if (currentIndex == index) append(value)
+        val newNode = Node(value, lead.next)
+        lead.next = newNode
     }
 
     override fun toString(): String {
-        return "Head: $head | Tail: $tail"
+        var node = head
+        var string = ""
+        while (node != null) {
+            string += node.value
+            node = node.next
+            node?.let { string += "," }
+        }
+
+        return string
     }
 
     data class Node<T>(
@@ -75,10 +83,15 @@ class CustomLinkedList<T> {
 
 fun main() {
     val list = CustomLinkedList(1)
+    println(list)
     list.append(2)
-    list.append(5)
-//    list.prepend(20)
-    list.insert(5, 60)
-
+    println(list)
+    list.prepend(5)
+    println(list)
+    list.insert(2, 60)
+    println(list)
+    list.insert(50, 30)
+    println(list)
+    list.insert(0, 80)
     println(list)
 }
