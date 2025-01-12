@@ -17,12 +17,23 @@ class QueueWithStack2<T> {
 
     fun dequeue(): T {
 
+        // Worst case is O(n)
         if (a2.isEmpty()) {
             while (a1.isNotEmpty()) {
                 a2.add(a1.removeLast())
             }
         }
 
+        /**
+         * Using Amortized Analysis, we can deduce that worst case operation may alter the state and cannot happen again
+         * for a long time.
+         *
+         * For example:
+         *  enqueue(x) -> enqueue(x) -> enqueue(x) -> enqueue(x) -> enqueue(x) -> enqueue(x)
+         *  dequeue() -> dequeue() -> dequeue() -> dequeue()
+         *
+         * In this case, only the first dequeue is gonna be O(n), while all the others will be O(1)
+         */
         return a2.removeLast()
     }
 
