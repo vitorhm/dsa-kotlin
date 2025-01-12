@@ -1,12 +1,14 @@
 package dsstackqueues
 
 /**
- * Queue using stack
+ * Queue using stack.
+ * Enqueue operation --> O(n)
+ * Dequeue operation --> O(1)
  */
 class QueueWithStack<T> {
 
-    private val a1 = mutableListOf<T>() // ()
-    private val a2 = mutableListOf<T>() // ()
+    private val a1 = mutableListOf<T>()
+    private val a2 = mutableListOf<T>()
 
     /**
      * a1 -> (1) \ a2 -> ()
