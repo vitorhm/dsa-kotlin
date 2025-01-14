@@ -16,6 +16,50 @@ class BinarySearchTree {
         insert(child = node, parent = root!!)
     }
 
+    fun remove(value: Int): Node? = remove(root, value)
+
+    private fun remove(node: Node?, value: Int): Node? {
+
+        if (node == null) return null
+
+        when {
+            value > node.value -> {
+                node.right = remove(node.right, value)
+            }
+
+            value < node.value -> {
+                node.left = remove(node.left, value)
+            }
+
+            else -> {
+                // 3 cases
+
+                // left and right are null (leaf)
+                if (node.right == null && node.left == null) return null
+
+                // left or right are null
+                if (node.right == null) return node.left
+                if (node.left == null) return node.right
+
+                // left and right aren't null
+                val new = findMin(node.right!!)
+                node.value = new.value
+                node.right = remove(node.right, new.value)
+            }
+        }
+
+        return node
+    }
+
+    private fun findMin(node: Node): Node {
+        var current: Node = node
+        while (current.left != null) {
+            current = current.left!!
+        }
+
+        return current
+    }
+
     private fun insert(child: Node, parent: Node) {
 
         return if (child.value > parent.value) {
@@ -53,7 +97,7 @@ class BinarySearchTree {
     data class Node(
         var left: Node? = null,
         var right: Node? = null,
-        val value: Int
+        var value: Int
     ) {
 
         override fun toString(): String = traverse(this)
@@ -89,5 +133,7 @@ fun main() {
 
     println(binarySearchTree)
 
-    println(binarySearchTree.lookup(5))
+//    println(binarySearchTree.lookup(5))
+
+    println(binarySearchTree.remove(5))
 }
