@@ -14,11 +14,11 @@ Complexity is constant, no matter how many elements we have.
 
 ### O(n) - Linear Time
 
-Complexity increase as elements and operations increase on the same amount.
+Complexity increases as elements and operations increase on the same amount.
 
 ### O(n²) - Quadratic Time
 
-Every element increased, the operation quadratic increase. Normally this means nested loops for example.
+The operation quadratically increases with every element increased. Normally this means nested loops for example.
 
 ### O(n!) - Factorial Time
 
