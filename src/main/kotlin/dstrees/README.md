@@ -51,3 +51,12 @@
 ![img_7.png](img_7.png)
 
 ![img_8.png](img_8.png)
+
+### Tries
+
+- Characters are stored in each node.
+- Each path down the tree may represent a word.
+- The * nodes are often used to indicate complete words.
+- Each node could have anywhere from 1 through the alphabet size + 1 children.
+
+![img_9.png](img_9.png)
