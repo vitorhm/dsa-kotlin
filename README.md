@@ -8,3 +8,4 @@
 ### [5. Data Structures: Linked Lists](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/dslinkedlist)
 ### [6. Data Structures: Stack + Queues](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/dsstackqueues)
 ### [7. Data Structures: Trees](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/dstrees)
+### [8. Data Structures: Graphs](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/dsgraphs)
