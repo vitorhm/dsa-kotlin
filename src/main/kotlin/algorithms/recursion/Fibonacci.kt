@@ -1,6 +1,6 @@
 package algorithms.recursion
 
-fun fibonacci(n: Int): Int {
+fun fibonacci(n: Int): Int { // O(2^n) --> BAD
 
     if (n < 2)
         return n
@@ -8,7 +8,7 @@ fun fibonacci(n: Int): Int {
     return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
-fun fibonacciIterative(n: Int): Int {
+fun fibonacciIterative(n: Int): Int { // O(n)
 
     if (n < 2) return n
 

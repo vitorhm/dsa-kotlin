@@ -16,9 +16,13 @@ Complexity is constant, no matter how many elements we have.
 
 Complexity increases as elements and operations increase on the same amount.
 
-### O(n²) - Quadratic Time
+### O(n^2) - Quadratic Time
 
 The operation quadratically increases with every element increased. Normally this means nested loops for example.
+
+### O(2^n) - Exponential
+
+Recursive algorithms that solve a problem of size N
 
 ### O(n!) - Factorial Time
 
