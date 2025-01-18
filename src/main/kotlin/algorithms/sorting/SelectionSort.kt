@@ -1,6 +1,6 @@
 package algorithms.sorting
 
-fun insertionSort(array: Array<Int>) {
+fun selectionSort(array: Array<Int>) {
 
     for (pointerIndex in array.indices) {
 
@@ -24,6 +24,6 @@ fun insertionSort(array: Array<Int>) {
 
 fun main() {
     val array = arrayOf(1, 3, 4, 7, 5, 6, 8, 2)
-    insertionSort(array)
+    selectionSort(array)
     println(array.contentToString())
 }
