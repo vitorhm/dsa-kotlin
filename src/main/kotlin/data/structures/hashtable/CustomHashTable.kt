@@ -1,4 +1,4 @@
-package dshashtable
+package data.structures.hashtable
 
 class CustomHashTable<T>(private val size: Int) {
 

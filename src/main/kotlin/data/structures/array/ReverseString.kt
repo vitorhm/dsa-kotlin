@@ -1,4 +1,4 @@
-package dsarray
+package data.structures.array
 
 fun reverse(str: String): String = str.reversed() // Too easy :)
 

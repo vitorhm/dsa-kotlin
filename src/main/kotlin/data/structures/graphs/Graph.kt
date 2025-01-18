@@ -1,4 +1,4 @@
-package dsgraphs
+package data.structures.graphs
 
 class Graph {
 

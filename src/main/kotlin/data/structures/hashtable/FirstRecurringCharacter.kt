@@ -1,4 +1,4 @@
-package dshashtable
+package data.structures.hashtable
 
 // Find recurring character with time > space
 fun findFavoringSpaceComplexity(array: Array<Int>): Int? {

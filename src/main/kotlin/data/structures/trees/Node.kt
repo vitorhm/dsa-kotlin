@@ -1,4 +1,4 @@
-package dstrees
+package data.structures.trees
 
 data class Node(
     var left: Node? = null,

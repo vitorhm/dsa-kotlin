@@ -1,4 +1,4 @@
-package dsarray
+package data.structures.array
 
 fun merge(arr1: Array<Int>, arr2: Array<Int>) = arr1.plus(arr2).sortedArray()
 

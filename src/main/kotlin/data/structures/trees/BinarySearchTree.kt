@@ -1,4 +1,4 @@
-package dstrees
+package data.structures.trees
 
 class BinarySearchTree {
 

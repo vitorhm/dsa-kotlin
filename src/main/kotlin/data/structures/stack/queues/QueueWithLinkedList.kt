@@ -1,4 +1,4 @@
-package dsstackqueues
+package data.structures.stack.queues
 
 class QueueWithLinkedList<T> {
 

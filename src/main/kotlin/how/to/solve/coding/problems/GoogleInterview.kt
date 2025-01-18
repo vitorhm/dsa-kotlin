@@ -1,4 +1,4 @@
-package htscp
+package how.to.solve.coding.problems
 
 fun main() {
 

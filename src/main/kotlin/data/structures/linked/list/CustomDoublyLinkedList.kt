@@ -1,18 +1,18 @@
-package dslinkedlist
+package data.structures.linked.list
 
 /**
- * This is a custom implementation of a linked list
+ * This is a custom implementation of a doubly linked list
  *
- * Each node points to next node, and we have a head that points to the first node and
- * a tail that points to the last node.
+ * Each node have a reference to next and previous node, and we have a head that holds a reference to the first node
+ * and a tail that holds a reference to the last node.
  */
-class CustomLinkedList<T> {
+class CustomDoublyLinkedList<T> {
 
     private var head: Node<T>? = null
     private var tail: Node<T>? = null
 
     constructor(value: T) {
-        val node = Node(value, null)
+        val node = Node(value, null, null)
         head = node
         tail = head
     }
@@ -21,20 +21,33 @@ class CustomLinkedList<T> {
 
     fun append(value: T) {
 
-        val node = Node(value, null)
+        // Create the new node and set the previous reference to the tail node
+        val node = Node(value, null, tail)
+
+        // Set the head to this the node if this is our first
         if (head == null) {
             head = node
         }
 
+        // If the current tail is not null then we set the next reference to this new node
         tail?.let { it.next = node }
+
+        // Finally we set the tail to this node
         tail = node
     }
 
     fun prepend(value: T) {
 
-        val node = Node(value, this.head)
+        // Create the new node
+        val node = Node(value, this.head, null)
+
+        // If head is different then null (we have at least one node), we point the previous reference to this new node
+        head?.previous = node
+
+        // Set the head node to this new node
         head = node
 
+        // Set the tail to this new head (only if this is our first node)
         if (tail == null) tail = head
     }
 
@@ -53,19 +66,34 @@ class CustomLinkedList<T> {
 
     fun insert(index: Int, value: T) {
 
+        // If index is equal zero then we prepend the value
         if (index == 0) {
             prepend(value)
             return
         }
 
+        // Find the lead node
         val lead = findNode(index - 1)
+
+        // If lead is equal null then we append the value
         if (lead == null) {
             append(value)
             return
         }
 
-        val newNode = Node(value, lead.next)
-        lead.next = newNode
+        // (lead) - (next)
+        //     \     /
+        //      (new)
+
+        // Create the new node pointing the next reference to the lead next reference and the previous reference to the lead
+        val new = Node(value, lead.next, lead)
+
+        // Point the previous reference of the lead next node to the new node
+        val next = lead.next
+        next?.previous = new
+
+        // Point the next reference of the lead to the new node
+        lead.next = new
     }
 
     fun remove(index: Int) {
@@ -81,48 +109,23 @@ class CustomLinkedList<T> {
         // Find the lead
         val lead = findNode(index - 1)
 
+        // (lead) - (next)
+        //     \     /
+        //     (deleted)
+
         // Get the current item on this index (which is the next node on the lead)
         val deleted = lead?.next
 
-        // Point the next node of the lead to the next node of the deleted (erasing all references to the deleted node)
-        lead?.next = deleted?.next
+        // Get the next node of the deleted node
+        val next = deleted?.next
+
+        // Point the next node of the lead to the next node of the deleted
+        lead?.next = next
+
+        // Point the previous node of the next node to the lead
+        next?.previous = lead
+
         if (tail == deleted) tail = lead
-    }
-
-    fun reverse() {
-
-        var previous = head
-        var current = previous?.next
-        tail = head
-
-        while (current != null) { // 3
-            val next = current.next // 4
-            current.next = previous // 4 --> 2
-            previous = current // 3
-            current = next // 4
-        }
-
-        tail?.next = null
-        head = previous
-    }
-
-    fun recursiveReverse() {
-
-        tail = head
-        head = reverseHead(head)
-    }
-
-    private fun reverseHead(head: Node<T>?): Node<T>? {
-
-        if (head?.next == null) {
-            return head
-        }
-
-        val reversed = reverseHead(head.next) // 3
-        head.next?.next = head
-        head.next = null
-
-        return reversed
     }
 
     override fun toString(): String {
@@ -139,13 +142,14 @@ class CustomLinkedList<T> {
 
     data class Node<T>(
         val value: T,
-        var next: Node<T>?
+        var next: Node<T>?,
+        var previous: Node<T>?
     )
 
 }
 
 fun main() {
-    val list = CustomLinkedList(1)
+    val list = CustomDoublyLinkedList(1)
     println(list)
     println("append(2)")
     list.append(2)
@@ -170,13 +174,5 @@ fun main() {
     println(list)
     println("remove(1)")
     list.remove(1) // Middle
-    println(list)
-
-    println("recursiveReverse()")
-    list.recursiveReverse()
-    println(list)
-
-    println("reverse()")
-    list.reverse()
     println(list)
 }
