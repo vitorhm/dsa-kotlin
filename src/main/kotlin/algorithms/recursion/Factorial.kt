@@ -6,9 +6,14 @@ fun factorial(n: Int): Int {
 }
 
 fun factorialIterative(n: Int): Int {
+
+    if (n == 0) return 1
+
     var sum = n
-    for (i in n - 1 downTo 1) {
-        sum += sum * (i - 1)
+    var c = n
+    while (c > 1) {
+        sum *= c - 1
+        --c
     }
 
     return sum
