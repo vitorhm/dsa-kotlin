@@ -1,6 +1,6 @@
 package algorithms.recursion
 
-fun factorial(n: Int, sum: Int): Int {
+fun factorial(n: Int, sum: Int = 0): Int {
     if (n == 1) return sum
     val s = if (sum > 0) sum * (n - 1) else n * (n - 1)
     return factorial(n - 1, s)
@@ -18,6 +18,6 @@ fun factorial(n: Int, sum: Int): Int {
 //}
 
 fun main() {
-    val fact = factorial(5, 0)
+    val fact = factorial(5)
     println(fact)
 }
