@@ -4,7 +4,7 @@ fun mergeSort(arr: IntArray): IntArray {
 
     if (arr.size == 1) return arr
 
-    val middle = arr.size / 2 // 1
+    val middle = arr.size / 2
     val left = arr.sliceArray(0 until middle)
     val right = arr.sliceArray(middle until arr.size)
 
@@ -31,12 +31,12 @@ fun merge(left: IntArray, right: IntArray): IntArray {
         arr[mergedIndex++] = right[rightIndex++]
     }
 
-    while (rightIndex < right.size) {
-        arr[mergedIndex++] = right[rightIndex++]
-    }
-
     while (leftIndex < left.size) {
         arr[mergedIndex++] = left[leftIndex++]
+    }
+
+    while (rightIndex < right.size) {
+        arr[mergedIndex++] = right[rightIndex++]
     }
 
     return arr
