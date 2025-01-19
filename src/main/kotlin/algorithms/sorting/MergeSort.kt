@@ -44,6 +44,6 @@ fun merge(left: IntArray, right: IntArray): IntArray {
 
 fun main() {
     val array = intArrayOf(3, 1, 4, 7, 5, 6, 8, 2)
-    val sorted = mergeSort(array)
+    val sorted = mergeSort(array) // --> O(n log n)
     println(sorted.contentToString())
 }
