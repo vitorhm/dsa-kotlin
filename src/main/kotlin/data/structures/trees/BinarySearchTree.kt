@@ -2,7 +2,8 @@ package data.structures.trees
 
 class BinarySearchTree {
 
-    private var root: Node? = null
+    var root: Node? = null
+        private set
 
     fun insert(value: Int) {
 
