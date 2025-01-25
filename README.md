@@ -11,3 +11,4 @@
 ### [8. Data Structures: Graphs](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/data/structures/graphs)
 ### [9. Algorithms: Recursion](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/algorithms/recursion)
 ### [10. Algorithms: Sorting](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/algorithms/sorting)
+### [11. Algorithms: Searching](https://github.com/vitorhm/dsa-kotlin/tree/main/src/main/kotlin/algorithms/searching)

@@ -67,7 +67,7 @@ class BinarySearchTree {
         return current
     }
 
-    private fun insert(child: Node, parent: Node) {
+    private fun  insert(child: Node, parent: Node) {
 
         return if (child.value > parent.value) {
             if (parent.right == null) {
